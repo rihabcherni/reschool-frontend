@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import DarkLightColor from "./layout/header/DarkLightColor";
+import { ThemeProvider } from "styled-components";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const LightTheme = {
+  pageBackground: "white",
+  textColor: "black",
+  mapColor:"white",
+  iconColor:"#3CB371"
+};
+
+const DarkTheme = {
+  pageBackground: "#282c36",
+  textColor: "white",
+  mapColor:"red",
+  iconColor:"#00FF7F"
 }
 
+const themes = {
+  light: LightTheme,
+  dark: DarkTheme,
+}
+function App() {
+  const [theme, setTheme] = useState("light")
+  return (
+    <ThemeProvider theme={themes[theme]}>
+      <DarkLightColor theme={theme} setTheme={setTheme} />
+    </ThemeProvider>
+        );
+      }
 export default App;
