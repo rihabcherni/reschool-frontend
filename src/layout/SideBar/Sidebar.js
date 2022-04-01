@@ -24,79 +24,80 @@ const Icon = styled.div`
 const routes = [
   {
     path: "/",
+    name: "Login",
+    icon: <FaHome />,
+  }, 
+  {
+    path: "/responsable-etablissement/dashboard",
     name: "Dashboard",
     icon: <FaHome />,
-  },
-  {
-    path: "/map",
-    name: "Map",
-    icon: <FaUser />,
-  },
-  {
-    path: "/messages",
-    name: "Messages",
-    icon: <MdMessage />,
-  },
-  {
-    path: "/analytics",
-    name: "Analytics",
-    icon: <BiAnalyse />,
-  },
-  {
-    path: "/file-manager",
-    name: "File Manager",
+  }, 
+   {
+    path: "/responsable-etablissement/poubelles",
+    name: "poubelles",
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/settings/profile",
+        path: "/responsable-etablissement/settings/profile",
         name: "Profile ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
+        path: "/responsable-etablissement/settings/2fa",
         name: "2FA",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
+        path: "/responsable-etablissement/settings/billing",
         name: "Billing",
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
-    path: "/order",
+    path: "/responsable-etablissement/map",
+    name: "Map",
+    icon: <FaUser />,
+  },
+  {
+    path: "/responsable-etablissement/messages",
+    name: "Messages",
+    icon: <MdMessage />,
+  },
+  {
+    path: "/responsable-etablissement/calendrier",
+    name: "calendrier",
+    icon: <BiAnalyse />,
+  },
+  {
+    path: "/responsable-etablissement/order",
     name: "Order",
     icon: <BsCartCheck />,
   },
   {
-    path: "/settings",
+    path: "/responsable-etablissement/settings",
     name: "Settings",
     icon: <BiCog />,
     exact: true,
     subRoutes: [
       {
-        path: "/settings/profile",
+        path: "/responsable-etablissement/profile",
         name: "Profile ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
+        path: "/responsable-etablissement/settings/2fa",
         name: "2FA",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
+        path: "/responsable-etablissement/settings/billing",
         name: "Billing",
         icon: <FaMoneyBill />,
       },
     ],
   },
-  {
-    path: "/saved",
-    name: "Saved",
-    icon: <AiFillHeart />,
-  },
+
 ];
 
 const SideBar = ({ children } ,props) => {
@@ -111,7 +112,7 @@ const SideBar = ({ children } ,props) => {
       },
     },
     show: {
-      width: "80%",
+      width: "70%",
       padding: "5px 15px",
       transition: {
         duration: 0.2,
@@ -138,8 +139,7 @@ const SideBar = ({ children } ,props) => {
     <>
           <motion.div
             animate={{
-              width: isOpen ? "20%" : "55px",
-
+              width: isOpen ? "300px" : "55px",
               transition: {
                 duration: 0.5,
                 type: "spring",
@@ -237,11 +237,10 @@ const SideBar = ({ children } ,props) => {
             </section>
           </motion.div>
        
-        <main>
-           
-        <Header/>
-        <Page>{children}</Page>
-        <Footer/>
+        <main>        
+            <Header/>        
+            <Page>{children}</Page>
+            <Footer/>
         </main>
     </>
   );

@@ -3,15 +3,16 @@ import { styled as styledMui} from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import SideBar from "../SideBar/Sidebar";
 import Dashboard from "../../pages/Dashboard";
 import Map from "../../pages/Map";
 import Messages from "../../pages/Messages";
-import FileManager from "../../pages/FileManager";
-import Analytics from "../../pages/Analytics";
-import Order from "../../pages/Order";
-import Saved from "../../pages/Saved";
+import InfoPoubelle from "../../pages/InfoPoubelle";
+import Commander from "../../pages/Commander";
+import Panier from "../../pages/Panier";
+import Calendrier from "../../pages/Calendrier";
+import Login from "../../pages/Login";
 import Setting from "../../pages/Setting";
 import { AiFillSetting,AiOutlinePoweroff } from "react-icons/ai";
 const BottomSidebar = styled.div`
@@ -104,16 +105,19 @@ function DarkLightColor(props) {
         
         <Page>    
             <Router>
+               
             <SideBar>
             <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/map" element={<Map />} />
-                <Route path="/messages" element={<Messages />} />
-                <Route path="/analytics" element={<Analytics />} />
-                <Route path="/file-manager" element={<FileManager />} />
-                <Route path="/order" element={<Order />} />
-                <Route path="/saved" element={<Saved />} />
-                <Route path="/settings" element={<Setting />} />
+                <Route exact path="/" element={<Login />} />
+                <Route path="/responsable-etablissement/dashboard" element={<Dashboard />} />
+                <Route path="/responsable-etablissement/poubelles" element={<InfoPoubelle />} />
+                <Route path="/responsable-etablissement/map" element={<Map />} />
+                <Route path="/responsable-etablissement/calendrier" element={<Calendrier />} />
+                <Route path="/responsable-etablissement/commander" element={<Commander />} />
+                <Route path="/responsable-etablissement/panier" element={<Panier />} />
+                <Route path="/responsable-etablissement/messages" element={<Messages />} />
+                <Route path="/responsable-etablissement/settings" element={<Setting />} />
+                <Route path="/responsable-etablissement/profile" element={<Setting />} />
 
                 <Route path="*" element={<div> not found</div>} />
             </Routes>

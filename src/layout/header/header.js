@@ -21,8 +21,8 @@ transition: all .5s ease;
 export default function Header() {
   return (
     <Head>
-      <BadgeAvatars/>
-      <SwipeableTemporaryDrawer/>
+      {/*<BadgeAvatars/>
+  <SwipeableTemporaryDrawer/>*/}
     </Head>
   )
 }
